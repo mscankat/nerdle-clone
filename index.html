@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link href="./style.css" rel="stylesheet" />
+  </head>
+  <script src="./popup.js"></script>
+  <body>
+    <h1>Nerdle</h1>
+    <button onclick="openPopupInfo()">
+      <img src="./question_icon.svg" alt="" />
+    </button>
+
+    <div class="popup-lose popup" id="popup-lose">
+      <h1>Solution</h1>
+      <div class="solution">
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+      </div>
+      <button onclick="closePopup()">OK</button>
+    </div>
+    <div class="popup-win popup" id="popup-win">
+      <h1>Winner Winner Chicken Dinner</h1>
+      <button onclick="closePopup()">OK</button>
+    </div>
+    <div class="popup-info popup" id="popup-info">
+      <h2>How to Play</h2>
+      <p>
+        Guess the solution in 6 tries. After each guess, the color of the tiles
+        will change to show how close your guess was to the solution.
+      </p>
+      <h2>Rules</h2>
+      <ul>
+        <li>Each guess is a calculation.</li>
+        <li>You can use 0 1 2 3 4 5 6 7 8 9 + - * / or =.</li>
+        <li>It must contain one “=”.</li>
+        <li>
+          It must only have a number to the right of the “=”, not another
+          calculation.
+        </li>
+        <li>
+          Standard order of operations applies, so calculate * and / before +
+          and - eg. 3+2*5=13 not 25!
+        </li>
+      </ul>
+      <div class="example">
+        <div class="cell" style="background-color: #064731">3</div>
+        <div class="cell">*</div>
+        <div class="cell">9</div>
+        <div class="cell">0</div>
+        <div class="cell">=</div>
+        <div class="cell">2</div>
+        <div class="cell">7</div>
+        <div class="cell">0</div>
+      </div>
+      <p>3 is in the solution and in the correct spot.</p>
+      <div class="example">
+        <div class="cell">3</div>
+        <div class="cell">*</div>
+
+        <div class="cell" style="background-color: #ffb532">9</div>
+        <div class="cell">0</div>
+        <div class="cell">=</div>
+        <div class="cell">2</div>
+        <div class="cell">7</div>
+        <div class="cell">0</div>
+      </div>
+      <p>9 is in the solution but in the wrong spot.</p>
+
+      <button onclick="closePopup()">OK</button>
+    </div>
+  </body>
+  <script src="./solutions.js"></script>
+  <script src="./grid.js"></script>
+  <script src="./click.js"></script>
+  <script src="./type.js"></script>
+</html>
